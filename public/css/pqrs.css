@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body,
+html {
+    background-image: linear-gradient(rgb(41, 52, 97), rgb(109, 36, 36));
+}
+
+.container-tittle {
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: 'Catamaran', sans-serif;
+    font-style: italic;
+    color: white;
+}
+
+.card {
+    padding: 50px;
+    font-size: 1.8rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.form-control {
+    font-size: 1.8rem;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.form-control:focus {
+    font-size: 1.8rem;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.numeroId {
+    width: 50%;
+}
+
+.tipoRadicado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+option {
+    background-color: rgb(42, 42, 42);
+    color: white;
+}
+
+.button-sent {
+    padding: 10px;
+    margin: 30px;
+    font-size: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.form-mail {
+    margin: 0;
+}
+
+.form-text {
+    margin-bottom: 30px;
+}
