@@ -25,6 +25,7 @@ module.exports.editar = (req, res) => {
     const numeroId = req.body.numeroId_editar;
     const tipoRadicado = req.body.tipoRadicado_editar;
     const comentarios = req.body.comentarios_editar;
+    const GeoSchema = req.body.GeoSchema;
     //const anexo = req.body.anexo_editar
 
     table.findByIdAndUpdate(
@@ -36,6 +37,7 @@ module.exports.editar = (req, res) => {
             numeroId,
             tipoRadicado,
             comentarios,
+            GeoSchema
         },
         (error, datos) => {
             if (error) {
