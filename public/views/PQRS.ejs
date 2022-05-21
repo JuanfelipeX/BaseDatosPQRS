@@ -98,6 +98,22 @@
 
             </form>
 
+            <script>
+                if(navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(success, error);
+                } else {
+
+                }
+                
+                function success(geoLocationPosition){
+                    let coords = geoLocationPosition.coords;
+                    document.getElementById("GeoSchema").innerHTML = coords.latitude + ", " + coords.longitude;
+                }
+
+                function error(){
+                    console.log(Usuario denegó coordenadas);
+                }
+            </script>
         </div>
     </div>
 
