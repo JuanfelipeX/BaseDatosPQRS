@@ -88,7 +88,13 @@
 
                 <div class="mb-3">
                     <label for="GeoSchema" class="form-label">Dirección (coordenadas)</label>
-                    <input type="text" class="form-control" name="GeoSchema" id="GeoSchema" aria-describedby="nombreHelp" placeholder="Coordenadas" required>
+                    <input type="text" class="form-control" name="GeoSchema" id="GeoSchema" placeholder="Coordenadas">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="mapa" style="width: 100%; height: 500px;"></div>
+                    </div>
                 </div>
 
                 <div class="d-grid gap-2 col-5 mx-auto ">
@@ -99,20 +105,36 @@
             </form>
 
             <script>
-                //https://www.youtube.com/watch?v=PXQe_AGIqoQ <- Codigo del video
-                if(navigator.geolocation){
-                    navigator.geolocation.getCurrentPosition(success, error);
-                } else {
+                //https://www.youtube.com/watch?v=a2cb6eHCpvw <- Codigo del video
+                function iniciarMapa(){
+                    var latitud = 1; //Cambiar COORDENADAS
+                    var longitud = 1;
 
-                }
-                
-                function success(geoLocationPosition){
-                    let coords = geoLocationPosition.coords;
-                    document.getElementById("GeoSchema").innerHTML = coords.latitude + ", " + coords.longitude;
+                    coordenadas = {
+                        lng: longitud,
+                        lat: latitud
+                    }
+
+                    generarMapa(coordenadas);
                 }
 
-                function error(){
-                    console.log("Usuario denegó coordenadas");
+                function generarMapa(coordenadas){
+                    var mapa = new google.maps.Map(document.getElementById('mapa'),
+                    {
+                        zoom: 12,
+                        center: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+                    });
+
+                    marcador = new google.maps.Marker({
+                        map: mapa,
+                        draggable: true,
+                        position: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+                    });
+
+                    marcador.addListener('dragend', function(event){
+                        document.getElementById("latitud").value = this.getPosition().lat();
+                        document.getElementById("longitud").value = this.getPosition().lng();
+                    })
                 }
             </script>
         </div>
@@ -139,7 +161,7 @@
     <!-- Own JS -->
     <script src="../../controllers/pqrsController.js"></script>
     <script src="../js/pqrs.js"></script>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key&callback=iniciarMapa"></script>
 </body>
 
 </html>
