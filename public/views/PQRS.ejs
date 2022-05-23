@@ -100,43 +100,9 @@
                 <div class="d-grid gap-2 col-5 mx-auto ">
                     <button class="btn btn-primary button-sent" type="submit"> <i class="bi bi-box-arrow-down"></i>   Enviar</button>
                 </div>
-                
+                <script src="../js/map.js"></script>
 
             </form>
-
-            <script>
-                //https://www.youtube.com/watch?v=a2cb6eHCpvw <- Codigo del video
-                function iniciarMapa(){
-                    var latitud = 4.650519367744352; //Cambiar COORDENADAS
-                    var longitud = -74.06148660276776;
-
-                    coordenadas = {
-                        lng: longitud,
-                        lat: latitud
-                    }
-
-                    generarMapa(coordenadas);
-                }
-
-                function generarMapa(coordenadas){
-                    var mapa = new google.maps.Map(document.getElementById('mapa'),
-                    {
-                        zoom: 12,
-                        center: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
-                    });
-
-                    marcador = new google.maps.Marker({
-                        map: mapa,
-                        draggable: true,
-                        position: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
-                    });
-
-                    marcador.addListener('dragend', function(event){
-                        document.getElementById("latitud").value = this.getPosition().lat();
-                        document.getElementById("longitud").value = this.getPosition().lng();
-                    })
-                }
-            </script>
         </div>
     </div>
 
