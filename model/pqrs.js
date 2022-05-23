@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const GeoSchema = new Schema({
+const GeoSchema = mongoose.Schema({
     type: {
         type: String,
         default: "Point"
@@ -50,6 +50,7 @@ const pqrsController = mongoose.Schema({
         type: String, // esto deberia ser tipo file
     },
     geometry: GeoSchema
+    
 });
 
 module.exports = mongoose.model("pqrs", pqrsController);

@@ -26,6 +26,7 @@ module.exports.crear = (req, res) => {
         tipoRadicado: req.body.tipoRadicado,
         comentarios: req.body.comentarios,
         anexo: req.body.anexo,
+        geometry: req.body.geometry
     });
 
     entrada.save(function(error, entrada) {
