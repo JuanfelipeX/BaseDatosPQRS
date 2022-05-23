@@ -25,7 +25,8 @@ function generarMapa(coordenadas){
     });
 
     marcador.addListener('dragend', function(event){
-        document.getElementById("GeoSchema").value = this.getPosition().lat();
-        document.getElementById("longitud").value = this.getPosition().lng();
+        var coords = this.getPosition().lat() + ", " + this.getPosition().lng();
+        console.log(coords);
+        document.getElementById("GeoSchema").value = coords;
     })
 }

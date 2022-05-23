@@ -6,7 +6,7 @@ const GeoSchema = mongoose.Schema({
         default: "Point"
     },
     coordinates: {
-        type: Number,
+        type: [Number],
         index: "2dsphere"
     }
 });
@@ -49,8 +49,7 @@ const pqrsController = mongoose.Schema({
     anexo: {
         type: String, // esto deberia ser tipo file
     },
-    geometry: GeoSchema
-    
+    GeoSchema: GeoSchema | String
 });
 
 module.exports = mongoose.model("pqrs", pqrsController);

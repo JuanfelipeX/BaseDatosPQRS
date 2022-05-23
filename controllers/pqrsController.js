@@ -26,13 +26,13 @@ module.exports.crear = (req, res) => {
         tipoRadicado: req.body.tipoRadicado,
         comentarios: req.body.comentarios,
         anexo: req.body.anexo,
-        geometry: req.body.geometry
+        GeoSchema: req.body.GeoSchema
     });
 
     entrada.save(function(error, entrada) {
         if (error) {
             return res.status(500).json({
-                message: "Error al crear el PQRS"
+                message: "Error al crear el PQRS" + error
             })
         }
         res.redirect("/table")
